@@ -1,14 +1,7 @@
 import Paho from "paho-mqtt";
 import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  Pressable,
-  View,
-  ImageBackground,
-  Pressable,
-} from "react-native";
+import { StyleSheet, Text, Button, View, ImageBackground } from "react-native";
 import backgroundImage from "./assets/background-image.png";
 
 const client = new Paho.Client(
@@ -18,22 +11,19 @@ const client = new Paho.Client(
 );
 
 export default function App() {
-  let [value, setValue] = useState(0);
-  const [messageFromWemos, setMessageFromWemos] = useState("");
+let [value, setValue] = useState(0);
+  const [messageFromWemos, setMessageFromWemos] = useState('');
 
   function onMessage(message) {
     if (message.destinationName === "inTopic") {
       setValue(parseInt(message.payloadString));
-    } else if (
-      message.destinationName === "outTopic" &&
-      parseInt(message.payloadString) === 3
-    ) {
+    } else if (message.destinationName === "outTopic" && parseInt(message.payloadString) === 3) {
       // Handle message with value 3 from outTopic
       setMessageFromWemos("Switch has been open for more than 10 minutes!");
     }
-  }
+    }
 
-  useEffect(() => {
+      useEffect(() => {
     client.connect({
       onSuccess: () => {
         console.log("Connected!");
@@ -71,22 +61,22 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <ImageBackground source={backgroundImage} style={styles.image}>
-        <View style={styles.textContainer}>
-          <Text style={styles.output}>Value is: {value}</Text>
-          {/* {messageFromWemos && (
+    <ImageBackground source={backgroundImage} style={styles.image}>
+    <View style={styles.textContainer}>
+      <Text style={styles.output}>Value is: {value}</Text>
+      {/* {messageFromWemos && (
             <Text style={styles.messageFromWemos}>{messageFromWemos}</Text>
           )} */}
-          <Pressable
+                <Button
             onPress={() => {
               changeValue(client);
             }}
             title="Reset"
             color="red"
-            style={styles.reset}
+           // style={styles.reset}
           />
-        </View>
-        <StatusBar style="auto" />
+                </View>
+      <StatusBar style="auto" />
       </ImageBackground>
     </View>
   );
@@ -101,9 +91,9 @@ const styles = StyleSheet.create({
   },
   image: {
     flex: 1,
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover",
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
   },
   textContainer: {
     top: 50,
@@ -114,16 +104,16 @@ const styles = StyleSheet.create({
   output: {
     top: 0,
     fontSize: 20,
-    color: "red",
+    color: 'red',
   },
   messageFromWemos: {
     fontSize: 16,
-    color: "red",
+    color: 'red',
     marginTop: 10,
-  },
-  reset: {
+  }, 
+   reset: {
     fontSize: 30,
-    backgroundColor: "green",
-    color: "red", // Change this color to the desired color
-  },
+    backgroundColor: 'green', 
+    color: 'red',  // Change this color to the desired color
+  }
 });
