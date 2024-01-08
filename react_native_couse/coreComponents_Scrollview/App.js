@@ -1,11 +1,19 @@
-import { View, Text, Image, ScrollView } from "react-native";
-const logoimg = require("./assets/adaptive-icon.png");
+import { View, Text, Image, ScrollView,Button, Pressable } from "react-native";
+const logoimg = require("./assets/play-button-icon.png");
 
 export default function App() {
   return (
     <View style={{ flex: 1, backgroundColor: "plum", padding: 40 }}>
       <ScrollView>
-        <Image source={logoimg} style={{ width: 300, height: 300 }} />
+      <Button
+        title="Press"
+        onPress={() => console.log("Pressed")}
+        color="midnightblue"
+      />
+      <Pressable onPress={() => console.log("image Pressed")}>
+        <Image source={logoimg} style={{ width: 100, height: 100 }} />
+        </Pressable>
+        <Pressable onLongPress={() => console.log("Text Pressed")}>
         <Text>
           {" "}
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
@@ -21,7 +29,7 @@ export default function App() {
           doloremque voluptatum, doloribus libero voluptatibus, architecto
           excepturi amet. Accusamus, fugit?
         </Text>
-        <Image source={logoimg} style={{ width: 300, height: 300 }} />
+        </Pressable>
       </ScrollView>
     </View>
   );
