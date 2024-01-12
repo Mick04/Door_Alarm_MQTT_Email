@@ -30,21 +30,19 @@ export default function App() {
   );
 }
 function alerts(){
-  
-  console.log("alerts")
   return(
   Alert.alert("This is how you add two actions"," to a onpress",[
     {
-      text:'cancel',
-      onPress: ()=> console.log("cancel clicked"),
+      text:'Cancel',
+      onPress: ()=> Alert.alert("Canceled clicked"),
     },
     {
-      text:'OK',
-      onPress: ()=> console.log("OK clicked"),
+      text:'Ok',
+      onPress: ()=> Alert.alert("OK clicked"),
     },
     {
-      text:'submit',
-      onPress: ()=> console.log("submit clicked"),
+      text:'Submit',
+      onPress: ()=> Alert.alert("Submit clicked"),
     },
   ])
   )
