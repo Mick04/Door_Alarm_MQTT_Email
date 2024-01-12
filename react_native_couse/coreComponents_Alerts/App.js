@@ -20,7 +20,20 @@ export default function App() {
           <Text>modal content</Text>
           <Button
             title="Close"
-            onPress={() => setIsModalVisible(false)
+            onPress={() => setIsModalVisible(false) & Alert.alert("This is how you add two actions"," to a onpress",[
+              {
+                text:'cancel',
+                onPress: ()=> console.log("cancel clicked"),
+              },
+              {
+                text:'OK',
+                onPress: ()=> console.log("OK clicked"),
+              },
+              {
+                text:'submit',
+                onPress: ()=> console.log("submit clicked"),
+              },
+            ])
             }
             color="black"
           />
