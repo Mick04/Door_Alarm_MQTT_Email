@@ -16,12 +16,12 @@ export default function App() {
         animationType="slide"
         presentationStyle="pageSheet"
       >
-        <View style={{ flex: 1, backgroundColor: "lightblue", padding: 60 }}>
+        <View style={{ flex: 1, backgroundColor: "fuchsia", padding: 60 }}>
           <Text>modal content</Text>
           <Button
             title="Close"
             onPress={() => setIsModalVisible(false)}
-            color="midnightblue"
+            color="black"
           />
         </View>
       </Modal>
