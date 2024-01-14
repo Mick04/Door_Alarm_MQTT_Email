@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "styling-stylingRN",
-    "slug": "styling-stylingRN",
+    "name": "stylingRN",
+    "slug": "stylingRN",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
