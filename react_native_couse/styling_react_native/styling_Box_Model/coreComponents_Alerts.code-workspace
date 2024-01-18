@@ -1,0 +1,23 @@
+{
+  "folders": [
+	{
+		"path": "../../Corecomponents/coreComponents_Alerts"
+	},
+	{
+		"path": "../../Corecomponents/coreComponents_Button"
+	},
+	{
+		"path": "../../Corecomponents/coreComponents_modal"
+	},
+	{
+		"path": "../../Corecomponents/coreComponents_Scrollview"
+	},
+	{
+		"path": "../stylingRN"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {}
+}
