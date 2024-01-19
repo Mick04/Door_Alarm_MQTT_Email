@@ -17,10 +17,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // flexDirection:"column",
-    // flexDirection:"column-reverse",
-    // flexDirection:"row",
-    flexDirection:"row-reverse",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    // justifyContent: "flex-end",
+    // justifyContent: "center",
+    // justifyContent: "space-between",
+    // justifyContent: "space-around",
+    // justifyContent: "space-evenly",
     marginTop: 64,
     borderWidth: 20,
     borderColor: "blue",
