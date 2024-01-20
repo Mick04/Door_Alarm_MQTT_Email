@@ -3,7 +3,7 @@ import Box from "./components/Box";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Box style={{ backgroundColor: "#8e9b00", paddingVertical: 100 }}>
+      <Box style={{ backgroundColor: "#8e9b00", paddingVertical: 200 }}>
         Box1
       </Box>
       <Box style={{ backgroundColor: "#b65d1f" }}>Box2</Box>
@@ -33,6 +33,6 @@ const styles = StyleSheet.create({
     alignItems: "baseline",
     marginTop: 64,
     borderWidth: 20,
-    borderColor: "blue",
+    borderColor: "green",
   },
 });
