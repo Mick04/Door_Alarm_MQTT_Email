@@ -18,17 +18,9 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     flexWrap: "wrap",
-    // alignContent:"flex-start",
-    // alignContent:"flex-end",
-    // alignContent:"flex-end",
-    // alignContent:"center",
-    // alignContent:"stretch",
-    alignContent: "space-between", //this can cause a problem
-    // to resolve this problem you can add a fixed hight and width
-    // in this demo to the Box component
-
-    // alignContent:"space-around",
-
+    // rowGap:20,
+    // columnGap:30,
+    gap: 20,
     height: 300,
     marginTop: 64,
     borderWidth: 6,
