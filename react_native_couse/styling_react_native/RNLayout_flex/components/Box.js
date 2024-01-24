@@ -14,6 +14,8 @@ const styles = StyleSheet.create({
   box: {
     backgroundColor: "#f00",
     padding: 20,
+    width:100,
+    height:100,
   },
   text: {
     fontSize: 20,
@@ -21,4 +23,5 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
   },
+
 });
