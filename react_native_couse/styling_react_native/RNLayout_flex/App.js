@@ -7,7 +7,7 @@ export default function App() {
       <Box style={{ backgroundColor: "#8e9b00",top:75,left:75}}>Box 1</Box>
       <Box style={{ backgroundColor: "#b65d1f"}}>Box 2</Box>
       <Box style={{ backgroundColor: "#1c4c56"}}>Box 3</Box>
-      <Box style={{ backgroundColor: "#ab9156",top:75,left:75}}>Box 4</Box>
+      <Box style={{ backgroundColor: "#ab9156",position:"absolute", top:200,left:200}}>Box 4</Box>
       <Box style={{ backgroundColor: "#6b0803"}}>Box 5</Box>
       <Box style={{ backgroundColor: "#1c4c56"}}>Box 6</Box>
       <Box style={{ backgroundColor: "#b95f21"}}>Box 7</Box>
