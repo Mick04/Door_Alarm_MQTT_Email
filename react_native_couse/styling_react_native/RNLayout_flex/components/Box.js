@@ -5,6 +5,8 @@ export default function box({ children, style }) {
     <View style={[styles.box, style]}>
       <Text style={styles.text}>{children}</Text>
     </View>
+
+    
   );
 }
 
