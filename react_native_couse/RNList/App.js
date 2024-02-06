@@ -5,13 +5,14 @@ import {
   View,
   SafeAreaView,
   StatusBar,
+  FlatList,
 } from "react-native";
 import pokemonList from "./data.json";
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SafeAreaView>
-        <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={styles.container}>
+{/* 
+         <ScrollView style={styles.scrollView}>
           {pokemonList.map((pokemon) => {
             return (
               <View style={styles.card} key={pokemon.id}>
@@ -20,10 +21,24 @@ export default function App() {
               </View>
             );
           })}
-          {/* <StatusBar style="auto" /> */}
-        </ScrollView>
+        </ScrollView> 
+         */}
+<FlatList
+  data={pokemonList}
+  renderItem={({ item }) => {
+    return (
+              <View style={styles.card} key={item.id}>
+                <Text style={styles.cardText}>{item.type} </Text>
+                <Text style={styles.cardText}>{item.name} </Text>
+              </View>
+    )
+  }
+    
+  }
+/>
+
+
       </SafeAreaView>
-    </View>
   );
 }
 
