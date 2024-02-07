@@ -6,8 +6,10 @@ import {
   SafeAreaView,
   StatusBar,
   FlatList,
+  SectionList,
 } from "react-native";
 import pokemonList from "./data.json";
+import groupedPokemonList from "./grouped-data.json";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
@@ -35,7 +37,7 @@ export default function App() {
       </View>  */}
 
       {/***************************************************/}
-
+{/*
       <FlatList
         data={pokemonList} //comment out and uncomment out line below
         // data={[]}       //to demmonstrate the ListEmptyComponent prop
@@ -54,18 +56,36 @@ export default function App() {
         /***********************************************
          *  use this method if you want the header to  *
          *             move with the list              *
-         ***********************************************/
-
+         ***********************************************/}
+{/*
         ListHeaderComponent={
           <Text style={styles.headerText}> Pokemon List</Text>
         }
-        /**********************************************
-         ***********************************************/
-
+        {/**********************************************
+         ***********************************************/}
+{/*
         ListFooterComponent={
           <Text style={styles.footerText}> End of list</Text>
         }
       />
+      */}
+      <SectionList
+sections={groupedPokemonList}
+  renderItem={({item}) => {
+    return (
+      <View style={styles.card}>
+        <Text style={styles.cardText}>{item} </Text> 
+      </View>
+    )
+  }}
+  renderSectionHeader={({
+    section
+  }) => (
+    <Text style={styles.sectionHesderText}>{section.type}</Text>
+  )}
+  ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+  SectionSeparatorComponent={() => <View style={{ height: 16 }} />}
+/>
     </SafeAreaView>
   );
 }
@@ -100,4 +120,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     marginTop: 12,
   },
+  sectionHesderText:{
+    backgroundColor: "white",
+    fontSize: 24,
+    fontWeight:"bold",
+  }
 });
