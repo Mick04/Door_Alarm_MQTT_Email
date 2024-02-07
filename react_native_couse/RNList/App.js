@@ -11,7 +11,7 @@ import pokemonList from "./data.json";
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-{/* 
+      {/* I
          <ScrollView style={styles.scrollView}>
           {pokemonList.map((pokemon) => {
             return (
@@ -23,22 +23,50 @@ export default function App() {
           })}
         </ScrollView> 
          */}
-<FlatList
-  data={pokemonList}
-  renderItem={({ item }) => {
-    return (
-              <View style={styles.card} key={item.id}>
-                <Text style={styles.cardText}>{item.type} </Text>
-                <Text style={styles.cardText}>{item.name} </Text>
-              </View>
-    )
-  }
-    
-  }
-/>
 
+      {/**********************************************
+       *     use this method for a static Header    *
+       *       or use line 55 for a Header that     *
+       *             moves with the list            *
+       **********************************************/}
 
-      </SafeAreaView>
+      {/* <View>
+        <Text style={styles.headerText}> Pokemon List</Text>
+      </View>  */}
+
+      {/***************************************************/}
+
+      <FlatList
+        data={pokemonList} //comment out and uncomment out line below
+        // data={[]}       //to demmonstrate the ListEmptyComponent prop
+        renderItem={({ item }) => {
+          return (
+            <View style={styles.card} key={item.id}>
+              <Text style={styles.cardText}>{item.type} </Text>
+              <Text style={styles.cardText}>{item.name} </Text>
+            </View>
+          );
+        }}
+        // horizontal
+        keyExtractor={(item) => item.id.toString()}
+        ItemSeparatorComponent={<View style={{ height: 16 }} />}
+        ListEmptyComponent={<Text style={styles.cardText}>No items found</Text>}
+        /***********************************************
+         *  use this method if you want the header to  *
+         *             move with the list              *
+         ***********************************************/
+
+        ListHeaderComponent={
+          <Text style={styles.headerText}> Pokemon List</Text>
+        }
+        /**********************************************
+         ***********************************************/
+
+        ListFooterComponent={
+          <Text style={styles.footerText}> End of list</Text>
+        }
+      />
+    </SafeAreaView>
   );
 }
 
@@ -56,9 +84,20 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 8,
     borderWidth: 1,
-    marginBottom: 16,
+    // marginBottom: 16,
   },
-  cardText:{
+  cardText: {
     fontSize: 30,
-  }
+    textAlign: "center",
+  },
+  headerText: {
+    textAlign: "center",
+    fontSize: 24,
+    marginBottom: 30,
+  },
+  footerText: {
+    textAlign: "center",
+    fontSize: 24,
+    marginTop: 12,
+  },
 });
