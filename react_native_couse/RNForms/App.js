@@ -21,7 +21,7 @@ export default function App() {
         // secureTextEntry
         // keyboardType="numeric"
       />
-      <TextInput style={[styles.input, styles.multylineText]
+      <TextInput style={[styles.input, styles.multilineText]
       }placeholder="Message"
       multiline />
       <Text style={styles.text}>My name is {name}</Text>
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     padding: 10,
   },
-  multylineText: {
+  multilineText: {
     minHeight: 100,
     textAlignVertical: "top",
   },
