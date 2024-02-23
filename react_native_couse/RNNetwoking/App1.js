@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { 
+import {
   View,
   Text,
   FlatList,
@@ -22,13 +22,13 @@ const App = () => {
 
   const fetchData = async (limit = 10) => {
     try {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
-    );
-    const data = await response.json();
-    setPostList(data);
-    setIsLoading(false);
-    setError("");
+      const response = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?_limit=${limit}`
+      );
+      const data = await response.json();
+      setPostList(data);
+      setIsLoading(false);
+      setError("");
     } catch (error) {
       console.error("Error fetching data:", error);
       setIsLoading(false);
@@ -52,8 +52,8 @@ const App = () => {
           }),
         }
       );
-      const newPost = await response.jason();
-      setpostList([newPost, ...postList]);
+      const newPost = await response.json();
+      setPostList([newPost, ...postList]);
       setPostTitle("");
       setPostBody("");
       setError("");
@@ -64,7 +64,7 @@ const App = () => {
     setIsPosting(false);
   };
 
-  const handleRefresh = () => {
+    const handleRefresh = () => {
     setRefreshing(true);
     fetchData(20);
     setRefreshing(false);
@@ -85,54 +85,54 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-   {error ? (
-    <View style={styles.errorContainer}>
-    <Text style={styles.errorText}>{error}</Text>
-      </View>
-    ) : (
-      <>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            placeholder="Post Title"
-            value={postTitle}
-            onChangeText={setPostTitle}
-          />
-          <TextInput
-            style={styles.input}
-            placeholder="Post Body"
-            value={postBody}
-            onChangeText={setPostBody}
-          />
-          <Button
-            title={isPosting ? "Adding..." : "Add Post"}
-            onPress={addPost}
-            disabled={isPosting}
-          />
+      {error ? (
+        <View style={styles.errorContainer}>
+          <Text style={styles.errorText}>{error}</Text>
         </View>
-        <View style={styles.listContainer}>
-          <FlatList
-            data={postList}
-            renderItem={({ item }) => (
+      ) : (
+        <>
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Post Title"
+              value={postTitle}
+              onChangeText={setPostTitle}
+            />
+            <TextInput
+              style={styles.input}
+              placeholder="Post Body"
+              value={postBody}
+              onChangeText={setPostBody}
+            />
+            <Button
+              title={isPosting ? "Adding..." : "Add Post"}
+              onPress={addPost}
+              disabled={isPosting}
+            />
+          </View>
+          <View style={styles.listContainer}>
+            <FlatList
+              data={postList}
+              renderItem={({ item }) => (
                 <View style={styles.card}>
                   <Text style={styles.nameText}>{item.title}</Text>
                   <Text style={styles.typeText}>{item.body}</Text>
                 </View>
-            )}
-            keyExtractor={(item) => item.id.toString()}
-            ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
-            ListEmptyComponent={<Text>No Posts Found</Text>}
-            ListHeaderComponent={
-              <Text style={styles.headerText}>Post List</Text>
-            }
-            ListFooterComponent={
-              <Text style={styles.footerText}>End of list</Text>
-            }
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-          />
-        </View>
-      </>
+              )}
+              keyExtractor={(item) => item.id.toString()}
+              ItemSeparatorComponent={() => <View style={{ height: 16 }} />}
+              ListEmptyComponent={<Text>No Posts Found</Text>}
+              ListHeaderComponent={
+                <Text style={styles.headerText}>Post List</Text>
+              }
+              ListFooterComponent={
+                <Text style={styles.footerText}>End of list</Text>
+              }
+              refreshing={refreshing}
+              onRefresh={handleRefresh}
+            />
+          </View>
+        </>
       )}
     </SafeAreaView>
   );
