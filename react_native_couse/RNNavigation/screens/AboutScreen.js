@@ -1,5 +1,5 @@
 import { View, Text, Button, StyleSheet } from "react-native";
-
+// i should put more comments in
 export default function AboutScreen({ navigation, route }) {
     const { name } = route.params;
   return (
