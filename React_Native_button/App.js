@@ -15,14 +15,16 @@ let [value, setValue] = useState(0);
   const [messageFromWemos, setMessageFromWemos] = useState('');
 
   function onMessage(message) {
+    console.log("message"+message);
     if (message.destinationName === "inTopic") {
+      console.log("inTopic");
       setValue(parseInt(message.payloadString));
     } else if (message.destinationName === "outTopic" && parseInt(message.payloadString) === 3) {
+      console.log("outTopic");
       // Handle message with value 3 from outTopic
       setMessageFromWemos("Switch has been open for more than 10 minutes!");
     }
     }
-
       useEffect(() => {
     client.connect({
       onSuccess: () => {
@@ -39,9 +41,11 @@ let [value, setValue] = useState(0);
   function changeValue(c) {
     setValue(1);
     value = 1;
+   
     var message = new Paho.Message(value.toString());
     message.destinationName = "inTopic";
     c.send(message);
+    console.log(message);
     setTimeout(() => {
       setValue(0);
       value = 0;
@@ -49,6 +53,8 @@ let [value, setValue] = useState(0);
       message = new Paho.Message(value.toString());
       message.destinationName = "inTopic";
       c.send(message);
+      console.log(message);
+
     }, 5000);
   }
 
