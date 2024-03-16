@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "MyTabApp",
+    "slug": "MyTabApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "platforms": [
+      "android"
+    ],
+    "sdkVersion": "44.0.0",
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mick5y4.MyTabApp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c929b2fa-d842-4a2b-8d94-a7e237e5f98b"
+      }
+    }
+  }
+}
