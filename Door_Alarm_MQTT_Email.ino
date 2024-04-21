@@ -218,6 +218,7 @@ void setup() {
   MailClient.networkReconnect(true);
 }
 void loop() {
+  MDNS.update();
   ArduinoOTA.handle();
   if (!client.connected()) {
     reconnect();
