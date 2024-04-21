@@ -11,7 +11,7 @@
 #define SMTP_PORT 465
 
 /* The sign in credentials */
-#define AUTHOR_EMAIL "esp82665y4@gmail.com"
+#define AUTHOR_EMAIL "esp82665y4@gmail.comccc"
 #define AUTHOR_PASSWORD "pyhj nwif eruh dxdm"
 
 /******************************
